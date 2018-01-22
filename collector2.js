@@ -46,7 +46,6 @@ function buyUntilFull(vars){
     do {
         current.push(0);
     }while (current.length < vars.nSize);
-    console.log("collection built.");
 
     var done = false;
     var tries = 0;
@@ -54,25 +53,32 @@ function buyUntilFull(vars){
     do{
         tries++;
         var newBox = buy(vars.nSize, vars.boxSize, vars.dupesInBox);
-        console.log("this box: " + newBox);
         for(var n in newBox){
             current[newBox[n]]++;
         }
         if(!current.includes(0)){
             done = true;
         }
-        console.log(current);
     } while (!done);
 
     return tries;
 }
 
 function main(){
-    console.log("This is a test");
-    //executes the script
+    //Collects the Users Variables
     var settings = init();
-    //console.log(settings.nSize);
-    //console.log(settings.dupesInBox);
-    var test = buyUntilFull(settings);
-    console.log(test);
+
+    //Create an empty object for the results
+    var results = {};
+    //collect the whole set as many times as the user wishes
+    for(var i = 0; i < settings.runs; i++){
+        var thisTry = buyUntilFull(settings);
+        if (thisTry in results){
+            results[thisTry]++;
+        } else {
+            results[thisTry] = 1;
+        }
+    }
+
+    console.log(results);
 }
