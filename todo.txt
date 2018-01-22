@@ -1,0 +1,5 @@
+-make a concise branch
+-do some kind of error checking
+    -if the size of teh box is bigger than the nSize, and dupes are off, it runs forever
+-make it output to the page
+-do some kind of css stuff
