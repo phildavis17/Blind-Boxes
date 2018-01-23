@@ -26,8 +26,14 @@
             <button type="button" name="start" onclick="main()">Go!</button>
         </form>
 
-        <p id="Results">
+        <p id = 'running' hidden>
+            Working...
+        </p>
 
+        <p id="results" hidden>
+            In <span id = "runCount"></span> simulations, it took at least
+            <span id = "min"></span>, and as many as <span id = "max"></span> boxes to complete the
+            collection, with an average of <span id = "ave"></span>.
         </p>
 
         <script type="text/javascript" src="collector2.js">
