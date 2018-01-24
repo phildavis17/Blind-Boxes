@@ -62,24 +62,40 @@ function buyUntilFull(vars){
     return tries;
 }
 
+function arrSum(arr){
+    var sum = 0;
+    for (var n in arr){
+        sum += arr[n];
+    }
+    return sum;
+}
+
 function showResults(res){
     var text = document.getElementById('results'); // The main block of text
-    var runCount = document.getElementById('runCount');
-    var min = document.getElementById('min');
-    var max = document.getElementById('max');
-    var ave = document.getElementById('ave');
-    var keys = Object.keys(res);
-    var vals = Object.values(res);
+    var runCountText = document.getElementById('runCountText');
+    var minText = document.getElementById('minText');
+    var maxText = document.getElementById('maxText');
+    var aveText = document.getElementById('aveText');
+    var tries = Object.keys(res);
+    var times = Object.values(res);
 
+    var av = 0;
+    var min = Math.min(...tries);
+    var max = Math.max(...tries);
+    var runCount = arrSum(times);
 
-    min.textContent = Math.min(...keys);
-    max.textContent = Math.max(...keys);
+    for (var i in tries){
+        av += tries[i] * times[i];
+    }
+    av = av/runCount;
 
-    runCount.textContent = 'TESTING';
+    minText.textContent = min;
+    maxText.textContent = max;
 
-    //And then show the results
+    runCountText.textContent = runCount;
+    aveText.textContent = av;
 
-    text.style.display = 'block';
+    text.style.display = 'block'; // Show the results section
 }
 
 function main(){

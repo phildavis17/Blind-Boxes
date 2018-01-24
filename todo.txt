@@ -3,8 +3,9 @@ Questions:
 To Do:
 -do some kind of error checking
     -if the size of teh box is bigger than the nSize, and dupes are off, it runs forever
--calculate the average from the results object
 -do some kind of css stuff
+-format the numbers for text
 
 Done:
 -make it output to the page
+-calculate the average from the results object
