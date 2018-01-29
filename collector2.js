@@ -6,8 +6,14 @@ function init(){
     userVars.boxSize = document.getElementById("boxSize").value;
     userVars.dupesInBox = document.getElementById("dupesInBox").checked;
     userVars.runs = document.getElementById("runs").value;
-    //Find and alert for bugs
+    //Find and alert for bad inputs
     return userVars;
+}
+
+function sanitize(vars){
+    if (vars.dupesInBox === false && vars.boxSize > vars.nSize){
+        alert("Boxes can't be bigger than the whole collection. Decreasing box szie");
+    }
 }
 
 function select(col){
